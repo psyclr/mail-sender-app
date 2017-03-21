@@ -1,0 +1,10 @@
+<groups xmlns="http://www.isdc.ro/wro">
+	<group name="angular-bootstrap">
+		<css>/webjars/bootstrap/3.3.7-1/less/bootstrap.less</css>
+		<css>/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css</css>
+		<css>/webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css</css>
+		<css>file:@project.basedir@/src/main/wro/main.less</css>
+		<js>/webjars/jquery/3.1.1-1/jquery.min.js</js>
+		<js>/webjars/angularjs/1.6.2/angular.min.js</js>
+	</group>
+</groups>

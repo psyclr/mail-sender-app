@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<title>EmailSender</title>
+	<link href="css/angular-bootstrap.css" rel="stylesheet">
+	<style type="text/css">
+		[ng\:cloak], [ng-cloak], .ng-cloak
+		{
+			display: none !important;
+		}
+	</style>
+</head>
+<body ng-app="main">
+<div class="page-header">
+	<h1 class="text-center">Email sender app</h1>
+</div>
+<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+<div ng-controller="emailController" ng-cloak class="ng-cloak">
+	<div class="container">
+		<form name="form" class="css-form" novalidate>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="from">Your email address:</label>
+					<input type="email" class="form-control" id="from" ng-model="email.from">
+					<span ng-show="form.overwrittenEmail.$error.email">This email format is invalid!</span><br>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="to">Addressee:</label>
+					<input type="email" class="form-control" id="to" ng-model="email.to">
+					<span ng-show="form.overwrittenEmail.$error.email">This email format is invalid!</span><br>
+				</div>
+			</div>
+		</form>
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="subject">Subject:</label>
+				<input class="form-control" id="subject" ng-model="email.subject"/>
+			</div>
+			<div class="form-group">
+				<label for="content">Email text:</label>
+				<textarea class="form-control" rows="5" id="content" ng-model="email.content"></textarea>
+			</div>
+		</div>
+		<div class="text-center">
+			<button type="button" class="btn btn-primary" ng-click="sendEmailToServer()"> Send!</button>
+		</div>
+	</div>
+</div>
+<script src="js/angular-bootstrap.js" type="text/javascript"></script>
+<script src="js/main.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.js"></script>
+</body>
+</html>
