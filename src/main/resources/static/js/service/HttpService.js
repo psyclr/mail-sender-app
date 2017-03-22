@@ -12,7 +12,5 @@ function HttpService($http)
 		return response.status;
 	}
 
-	return {
-		sendMail:_sendMail
-	}
+	return {sendMail: _sendMail}
 }

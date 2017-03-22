@@ -11,6 +11,7 @@ public class Constant
 	public static final String MAILGUN_CONTENT = "text";
 	public static final String MAILGUN_USERNAME = "api";
 	public static final String MAILGUN_SUBJECT = "subject";
+
 	public static final String CONTENT_TYPE_TEXT_PLAIN = "text/plain";
 	public static final String SENDGRID_ENDPOINT = "mail/send";
 }
