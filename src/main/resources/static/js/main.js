@@ -7,7 +7,7 @@ app.directive('overwriteEmail', function ()
 		require: '?ngModel',
 		link: function (scope, elm, attrs, ctrl)
 		{
-			if (ctrl && ctrl.$validators.email)
+			if (ctrl && ctrl.$validators.email.from && ctrl.$validators.email.to)
 			{
 				ctrl.$validators.email = function (modelValue)
 				{
@@ -17,9 +17,9 @@ app.directive('overwriteEmail', function ()
 		}
 	};
 });
-app.controller('emailController', MainController);
-MainController.$inject = ['$scope', 'HttpService', 'toaster'];
-function MainController($scope, HttpService, toaster)
+app.controller('emailController', EmailController);
+EmailController.$inject = ['$scope', 'HttpService', 'toaster'];
+function EmailController($scope, HttpService, toaster)
 {
 	$scope.email = {
 		from: '',
@@ -40,6 +40,20 @@ function MainController($scope, HttpService, toaster)
 			toaster.pop('error', "Error", "emails shouldn't be the same!");
 			return;
 		}
-		HttpService.sendMail(url, $scope.email, config);
+		else if ($scope.email.from === null)
+		{
+			toaster.pop('error', "Error", "enter addressee email!");
+			return;
+		}
+		else if ($scope.email.from === null)
+		{
+			toaster.pop('error', "Error", "enter your email!");
+			return;
+		}
+
+		let responseCode = HttpService.sendMail(url, $scope.email, config);
+		if (responseCode === 200){
+			toaster.pop('success', "Email", "send successfully!");
+		}
 	};
 }
